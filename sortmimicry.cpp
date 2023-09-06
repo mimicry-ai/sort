@@ -316,7 +316,7 @@ void Sort4mv(int32_t* buffer) {
 		"vpcmpgtd %%xmm3, %%xmm1, %%xmm3 \n"
 		"vpcmpgtd %%xmm4, %%xmm1, %%xmm4 \n"
 		"movmskps %%xmm3, %%eax          \n"
-		"movmskps	%%xmm4, %%ecx          \n"
+		"movmskps %%xmm4, %%ecx          \n"
 		"lea 0(%%ecx,%%eax,4), %%eax     \n"
 		"shl $4, %%eax                   \n"
 		"movdqa shuffles(%%eax), %%xmm2  \n"
