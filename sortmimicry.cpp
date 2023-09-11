@@ -427,13 +427,12 @@ void workBody(T work[], size_t offsetLen, size_t nofArrays) {
 }
 
 // benchSortFunction runs provided sort function on a provided array of
-// random values. It checks that the values would be sorted in a first
-// run (just to be on the safe side), and then sorts nofArrays subarrays,
+// random values. It sorts nofArrays subarrays,
 // shifted by all offsets from 0 upto less than offsetLen, which provides
 // for different alignments of the subarrays to be benchmarked. It executes
 // the benchmark runs times, re-initializing the arrays to its initial state
 // after each run. It returns the total number of nanoseconds performing
-// sorting.
+// sorting (and copying - see comments on measurements).
 template<typename T, size_t len>
 std::chrono::nanoseconds benchSortFunction(void F(T*, size_t, size_t),
 																					T v[], size_t nofArrays, size_t offsetLen, size_t runs) {
